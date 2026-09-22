@@ -201,7 +201,7 @@ b, strong {
 /* Application autofill input's magic sparkles icon. */
 .ashby-application-form-autofill-input-icon {}
 
-/* Application autofill input's pending state overlay element. Can style [data-state] which can be 'active' or 'hidden'.
+/* Application autofill input's pending state overlay element. Can style [data-state] which can be 'active' or 'hidden'. */
 .ashby-application-form-autofill-input-pending-layer {}
 
 /* Application autofill input's root element. Can style [data-state] which can be 'pending', 'drag', or 'default'. */
@@ -314,20 +314,9 @@ b, strong {
   background-color: transparent;
 }
 
-/*.ashby-job-posting-brief-list>a:hover {
-  border-top: var(--borderWidthNormal) solid transparent !important;
-  padding: var(--spacingXlarge) var(--spacingLarge) !important;
-  background-color: var(--colorNeutral100A);
-  border-radius: 8px !important;
-}*/
-
 .ashby-job-posting-brief-list>a:first-child {
   border-top: var(--borderWidthNormal) solid transparent !important;
 }
-
-/*.ashby-job-posting-brief-list>a:hover + a {
-  border-top: var(--borderWidthNormal) solid transparent !important;
-}*/
 
 .ashby-job-posting-brief-list>a::after {
   content: "Apply";
@@ -414,87 +403,101 @@ b, strong {
 /* Custom Styles */
 /* ========================= */
 
+/* Ashby's class names are CSS-module hashes, and both the hash and the trailing
+   line number change on every deploy of theirs — anything pinned to one quietly
+   stops matching. Style through the documented .ashby-* hooks where one exists,
+   and match the stable part of the module name everywhere else. */
+
 /* Ashby indents this header block by 24px but only gives the job list a 12px
    gutter, so the hero image and headings hang off to the right of everything
    below them. Matched to the list. Selector is loose on purpose: Ashby rehashes
-   these module class names on every deploy and pinned ones go stale silently.
-   Scoped to the board — the same wrapper holds the title on an individual
-   posting, where 24px already lines up with the details pane beside it. */
+   these module class names on every deploy and pinned ones go stale silently. */
+[class*="_titles_"] {
+  margin-bottom: 32px;
+}
+
+/* The same wrapper holds the title on an individual posting, where 24px already
+   lines up with the details pane beside it — so only pull the board's copy in. */
 [class*="_titles_"]:has(.ashby-job-board-heading) {
   margin-left: var(--spacingSmall);
   margin-right: var(--spacingSmall);
 }
 
-._content_ud4nd_71 {
-  padding: 0;
-}
-
-._container_ud4nd_29 {
+/* On the board the page shell doubles as the job-board section, and there the
+   hero image already supplies all the top space we want; every other page needs
+   room under the 'All Jobs' link. */
+body > div > div[class*="_container_"]:not([class*="_section_"]) {
   padding-top: 64px;
 }
-._jobPosting_12ylk_379:hover, ._jobPosting_12ylk_379:active {
+
+.ashby-job-posting-brief:hover,
+.ashby-job-posting-brief:active {
   background: transparent;
 }
-._tabs_4fqrp_30 {
+
+[class*="_tabs_"] {
   box-shadow: inset 0 -1px 0 0 var(--colorNeutral200);
 }
 
-._tab_4fqrp_30 {
+[class*="_tabs_"] a {
   color: var(--colorNeutral500);
   font-family: Besley, serif, sans-serif;
   font-size: var(--fontSizeXlarge);
 }
 
-._tab_4fqrp_30:not(._active_4fqrp_60):hover {
+[class*="_tabs_"] a:not([class*="_active_"]):hover {
   border-bottom-color: var(--colorNeutral300);
   color: var(--colorNeutral700);
 }
 
 @media only screen and (min-width: 768px) {
-  ._tab_4fqrp_30, ._slider_4fqrp_69 {
+  [class*="_tabs_"] a,
+  .ashby-job-posting-right-pane-tab-slider {
       margin-left: 0px;
       border-radius: 0px;
   }
-  :nth-child(2)._active_4fqrp_60~._slider_4fqrp_69 {
+  [class*="_tabs_"] a:nth-child(2)[class*="_active_"] ~ .ashby-job-posting-right-pane-tab-slider {
       transform: translate(200px);
   }
 }
 
-._tab_4fqrp_30._active_4fqrp_60 {
+[class*="_tabs_"] a[class*="_active_"] {
   color: var(--colorNeutral900);
 }
 
-._button_8wvgw_29 {
+/* Only the primary CTAs — 'Apply for this Job' and 'Submit Application'. Ashby's
+   secondary and quaternary buttons (resume upload, the 'All Jobs' back link) read
+   better as plain text than as solid black pills. */
+[class*="_button_"][class*="_primary_"] {
   background-color: var(--colorNeutral900);
   font-weight: var(--fontWeightLightBold);
   color: white;
   border: none;
 }
 
-._button_8wvgw_29:hover,
-._button_8wvgw_29:active {
+[class*="_button_"][class*="_primary_"]:hover,
+[class*="_button_"][class*="_primary_"]:active {
   background-color: var(--colorNeutral800);
   box-shadow: none;
 }
 
-._button_8wvgw_29 svg {
+[class*="_button_"][class*="_primary_"] svg {
   fill: currentColor;
 }
 
-._heading_101oc_53 {
-  color: var(--colorNeutral700);
-}
-
-._section_101oc_37 > p {
+/* Compensation is a span in its own module, so it misses the `> p` the other
+   details match — it needs naming separately or it's the one sans value. */
+.ashby-job-posting-left-pane [class*="_section_"] > p,
+.ashby-job-posting-left-pane [class*="_compensationTierSummary_"] {
   font-family: Besley;
   font-size: var(--fontSizeNormal);
 }
 
-body ._fieldEntry_hkyf8_29 {
+body .ashby-application-form-field-entry {
   margin-bottom: 40px;
 }
 
-._input_1wkz4_28 {
+.ashby-application-form-input-text {
   border-top-width: 0px;
   border-right-width: 0px;
   border-left-width: 0px;
@@ -504,57 +507,53 @@ body ._fieldEntry_hkyf8_29 {
   cursor: auto;
   color: var(--colorNeutral600)
 }
-._input_1wkz4_28::placeholder {
+.ashby-application-form-input-text::placeholder {
   color: var(--colorNeutral300)
 }
-._input_1wkz4_28:hover {
+.ashby-application-form-input-text:hover {
   border-bottom: var(--borderWidthNormal) solid var(--colorNeutral300);
   color: var(--colorNeutral600)
 }
 
 @media only screen and (min-width: 768px) {
-  ._container_6k3nb_71 {
+  .ashby-application-form-input-file {
       border: var(--borderWidthBold) dashed var(--colorNeutral200);
       transition: all .3s ease;
       background: var(--colorNeutral50A);
   }
-  ._container_6k3nb_71:hover {
+  .ashby-application-form-input-file:hover {
       border: var(--borderWidthBold) dashed var(--colorNeutral200);
   }
 }
 
-._input_1wkz4_28:not([data-disabled=true]):focus-within {
+.ashby-application-form-input-text:not([data-disabled=true]):focus-within {
   outline-width: 0px;
 }
 
-._root_xd2v0_1 {
+.ashby-application-form-autofill-input-root {
   background: var(--colorNeutral50A);
 }
 
-._option_y2cw4_33 {
+.ashby-application-form-input-yesno-option {
   border: var(--borderWidthNormal) solid var(--colorNeutral300);
   margin-left: calc(-1 * var(--borderWidthNormal));
 }
 
-._option_y2cw4_33:not(._active_y2cw4_58):hover {
+.ashby-application-form-input-yesno-option:not([class*="_active_"]):hover {
   background: var(--colorNeutral50A);
 }
 
-._titles_ud4nd_34 {
-  margin-bottom: 32px;
-}
-
-._topDescription_12ylk_30 {
+[class*="_topDescription_"] {
   margin-bottom: 96px;
 }
 
-._topDescription_12ylk_30 img[src="https://app.ashbyhq.com/api/images/user-content/f09eca50-aee8-4568-864c-30214f0f22a3/1700bc3e-7029-4c69-909c-3a77bbb8c3b4/68125465f6a9cbc21039b299_careers-Illustration.svg"] {
+[class*="_topDescription_"] img {
   max-height: 24rem;
   width: 100%;
   object-fit: cover;
 }
 
-._topDescription_12ylk_30 h1 {
+[class*="_topDescription_"] h1 {
   font-size: var(--fontSizeHuge);
   font-family: Besley, serif, sans-serif;
   font-weight: 400;
@@ -562,59 +561,63 @@ body ._fieldEntry_hkyf8_29 {
   margin-bottom: 72px;
 }
 
-._topDescription_12ylk_30 h1 strong {
+[class*="_topDescription_"] h1 strong {
   color: inherit;
   font-weight: inherit;
 }
 
-._container_101oc_29 {
-  box-shadow: none;
-  border-radius: 0px;
-  margin-top: 0px;
-}
-
-._title_xd2v0_64 {
+.ashby-application-form-autofill-input-title {
   font-family: Besley, serif, sans-serif;
   font-size: var(--fontSizeLarge);
 }
 
-._label_hkyf8_43 {
+.ashby-application-form-question-title {
   color: var(--colorNeutral900);
   font-weight: var(--fontWeightLightBold);
-  margin-bottom: var(--spacingSmall); 
+  margin-bottom: var(--spacingSmall);
 }
 
-._description_hkyf8_49 {
+.ashby-application-form-question-description {
   color: var(--colorNeutral500);
   font-size: var(--fontSizeSmall);
 }
 
-._header_xd2v0_43 {
+.ashby-application-form-autofill-input-root [class*="_header_"] {
   align-items: center;
   gap: var(--spacingXsmall);
 }
 
-._container_101oc_29 {
+/* Ashby's card padding is 24px/16px; we want the cards flush with whatever
+   column they sit in, so keep the vertical padding and drop the horizontal. */
+.ashby-job-posting-description-container,
+.ashby-application-form-autofill-pane,
+.ashby-application-form-container {
   padding: var(--spacingLarge) 0px;
 }
 
-._descriptionText_4fqrp_201 ol, ._descriptionText_4fqrp_201 ul {
+/* The left pane is the one card that sits directly under the posting title, and
+   Ashby indents that title by 24px. The content column supplies 12 of those, so
+   the pane owes the other 12 — flush here would leave the details hanging a
+   gutter's width left of the heading above them. */
+.ashby-job-posting-left-pane {
+  padding: var(--spacingLarge) var(--spacingSmall);
+}
+
+.ashby-job-posting-description ol,
+.ashby-job-posting-description ul {
   margin: var(--spacingNormal) 0 var(--spacingNormal) var(--spacingXlarge);
 }
 
-._section_12ylk_341 {
-  padding-top: 0;
-}
-
 @media only screen and (min-width: 768px) {
-  ._details_4fqrp_417 {
+  [class*="_content_"][class*="_details_"] {
       grid-template-columns: 260px 1fr;
       grid-column-gap: 2rem;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  ._descriptionText_4fqrp_201 ol, ._descriptionText_4fqrp_201 ul {
+  .ashby-job-posting-description ol,
+  .ashby-job-posting-description ul {
     margin: var(--spacingNormal) 0 var(--spacingNormal) var(--spacingNormal);
   }
 
@@ -630,13 +633,21 @@ body ._fieldEntry_hkyf8_29 {
     box-shadow: none;
   }
 
-  ._topDescription_12ylk_30 h1 {
+  [class*="_topDescription_"] h1 {
     font-size: var(--fontSizeXxxxlarge);
     margin-bottom: 24px;
   }
 
-  ._topDescription_12ylk_30 {
+  [class*="_topDescription_"] {
     margin-bottom: 48px;
   }
-}
 
+  /* One column down here, so the right pane's cards stack under the details
+     instead of sitting beside them and have to share the same inset. */
+  .ashby-job-posting-description-container,
+  .ashby-application-form-autofill-pane,
+  .ashby-application-form-container {
+    padding-left: var(--spacingSmall);
+    padding-right: var(--spacingSmall);
+  }
+}
