@@ -287,7 +287,7 @@ b, strong {
   font-weight: var(--fontWeightNormal);
   font-size: var(--fontSizeXlarge);
   letter-spacing: -0.01em;
-  margin-top: 0 !important;
+  margin-top: var(--spacingXxxlarge) !important;
   color: var(--colorNeutral950);
 }
 
@@ -414,8 +414,15 @@ b, strong {
 /* Custom Styles */
 /* ========================= */
 
-._titles_ud4nd_34 {
-  margin: 0;
+/* Ashby indents this header block by 24px but only gives the job list a 12px
+   gutter, so the hero image and headings hang off to the right of everything
+   below them. Matched to the list. Selector is loose on purpose: Ashby rehashes
+   these module class names on every deploy and pinned ones go stale silently.
+   Scoped to the board — the same wrapper holds the title on an individual
+   posting, where 24px already lines up with the details pane beside it. */
+[class*="_titles_"]:has(.ashby-job-board-heading) {
+  margin-left: var(--spacingSmall);
+  margin-right: var(--spacingSmall);
 }
 
 ._content_ud4nd_71 {
