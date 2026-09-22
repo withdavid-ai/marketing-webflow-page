@@ -617,6 +617,12 @@ body ._fieldEntry_hkyf8_29 {
     gap: 24px;
   }
 
+  /* Ashby only drops its job card shadow above 768px, and with our square corners
+     it reads as a stray box around the title rather than a shadow. */
+  .ashby-job-posting-brief {
+    box-shadow: none;
+  }
+
   ._topDescription_12ylk_30 h1 {
     font-size: var(--fontSizeXxxxlarge);
     margin-bottom: 24px;
