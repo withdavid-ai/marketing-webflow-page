@@ -35,6 +35,9 @@
 
   /* Other Color Variables */
   --colorPrimary500A: hsla(69, 3%, 50%, 0.13);
+  /* Ashby puts the brand colours configured in their admin in a style attribute
+     on <html>, and an inline declaration beats any selector we could write, so
+     these two need the !important. Change them in Ashby and they can go. */
   --colorPrimary600: var(--colorNeutral600) !important;
   --colorPrimary900: var(--colorNeutral900) !important;
   --colorSecondary900: hsl(322deg 65% 54.5%);
@@ -172,8 +175,10 @@ body {
   color: var(--colorNeutral500);
 }
 
-footer {
-  display: none !important;
+/* Ashby sets display:flex on the footer's own class, so a bare `footer` loses.
+   [class] only has to be there, not say anything, to out-specify it. */
+footer[class] {
+  display: none;
 }
 
 b, strong {
@@ -282,12 +287,12 @@ b, strong {
 .ashby-job-board-filters-label {}
 
 /* The heading of the entire job board. */
-.ashby-job-board-heading {
+[class*="_titles_"] .ashby-job-board-heading {
   font-family: Besley, serif, sans-serif;
   font-weight: var(--fontWeightNormal);
   font-size: var(--fontSizeXlarge);
   letter-spacing: -0.01em;
-  margin-top: var(--spacingXxxlarge) !important;
+  margin-top: var(--spacingXxxlarge);
   color: var(--colorNeutral950);
 }
 
@@ -297,11 +302,12 @@ b, strong {
 /* The 'Reset filters' label element in the job board. The reset filters label element in the job board. */
 .ashby-job-board-reset-filters-label {}
 
-/* The container of the job posting details pane. */
-.ashby-job-posting-brief {
-  margin-left: 0px !important;
+/* The container of the job posting details pane. Scoped through the list because
+   Ashby's own :first-child rule on it would otherwise win on specificity. */
+.ashby-job-posting-brief-list .ashby-job-posting-brief {
+  margin-left: 0px;
   background-color: transparent;
-  padding: 0px !important;
+  padding: 0px;
 }
 
 .ashby-job-posting-brief-list>a {
@@ -309,13 +315,13 @@ b, strong {
   padding: var(--spacingXlarge) 0px;
   justify-content: space-between;
   align-items: center;
-  border-top: var(--borderWidthNormal) solid var(--colorNeutral200) !important;
+  border-top: var(--borderWidthNormal) solid var(--colorNeutral200);
   transition: all .3s ease;
   background-color: transparent;
 }
 
 .ashby-job-posting-brief-list>a:first-child {
-  border-top: var(--borderWidthNormal) solid transparent !important;
+  border-top: var(--borderWidthNormal) solid transparent;
 }
 
 .ashby-job-posting-brief-list>a::after {
