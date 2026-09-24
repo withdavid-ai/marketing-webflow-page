@@ -623,6 +623,17 @@ body .ashby-application-form-field-entry {
   color: var(--colorNeutral600);
 }
 
+/* Ashby still paints its dark pill on hover, and with no side padding the text
+   ran into the rounded ends. Keep it a link all the way through. */
+.ashby-job-posting-left-pane [class*="_expandCompensationTiersButton_"]:hover,
+.ashby-job-posting-left-pane [class*="_expandCompensationTiersButton_"]:active {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--colorNeutral900);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .ashby-job-posting-description ol,
 .ashby-job-posting-description ul {
   margin: var(--spacingNormal) 0 var(--spacingNormal) var(--spacingXlarge);
