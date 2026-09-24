@@ -550,13 +550,15 @@ body .ashby-application-form-field-entry {
 }
 
 [class*="_topDescription_"] {
-  margin-bottom: 96px;
+  margin-bottom: 48px;
 }
 
+/* Sized so the first job still shows above the fold on a 1280x720 laptop. It
+   has to be width, not max-width: Ashby puts max-width:100% inline on the img,
+   and that beats anything we set here. */
 [class*="_topDescription_"] img {
-  max-height: 24rem;
-  width: 100%;
-  object-fit: cover;
+  width: 320px;
+  height: auto;
 }
 
 [class*="_topDescription_"] h1 {
@@ -564,7 +566,7 @@ body .ashby-application-form-field-entry {
   font-family: Besley, serif, sans-serif;
   font-weight: 400;
   color: var(--colorNeutral950);
-  margin-bottom: 72px;
+  margin-bottom: 32px;
 }
 
 [class*="_topDescription_"] h1 strong {
@@ -654,10 +656,6 @@ body .ashby-application-form-field-entry {
   [class*="_topDescription_"] h1 {
     font-size: var(--fontSizeXxxxlarge);
     margin-bottom: 24px;
-  }
-
-  [class*="_topDescription_"] {
-    margin-bottom: 48px;
   }
 
   /* One column down here, so the right pane's cards stack under the details
