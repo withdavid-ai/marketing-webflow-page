@@ -613,7 +613,7 @@ body .ashby-application-form-field-entry {
    ours doesn't have, so it spilled past the pane. A plain text link sits better
    next to the details anyway; the vertical padding keeps it a decent tap target. */
 .ashby-job-posting-left-pane [class*="_expandCompensationTiersButton_"] {
-  margin: 0;
+  margin: var(--spacingSmall) 0 0;
   padding: var(--spacingXsmall) 0;
   border: 0;
   font-size: var(--fontSizeSmall);
