@@ -609,6 +609,18 @@ body .ashby-application-form-field-entry {
   padding: var(--spacingLarge) var(--spacingSmall);
 }
 
+/* Ashby pulls the 'See More' pill out by -16px to cancel a 16px card padding
+   ours doesn't have, so it spilled past the pane. A plain text link sits better
+   next to the details anyway; the vertical padding keeps it a decent tap target. */
+.ashby-job-posting-left-pane [class*="_expandCompensationTiersButton_"] {
+  margin: var(--spacingSmall) 0 0;
+  padding: var(--spacingXsmall) 0;
+  border: 0;
+  font-size: var(--fontSizeSmall);
+  font-weight: var(--fontWeightLightBold);
+  color: var(--colorNeutral600);
+}
+
 .ashby-job-posting-description ol,
 .ashby-job-posting-description ul {
   margin: var(--spacingNormal) 0 var(--spacingNormal) var(--spacingXlarge);
