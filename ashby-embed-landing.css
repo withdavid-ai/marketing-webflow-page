@@ -1,0 +1,691 @@
+/* ========================= */
+/* Fonts */
+/* ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Besley:wght@400&display=swap');
+
+/* ========================= */
+/* Global Variables */
+/* ========================= */
+:root {
+  /* Neutral Colors */
+  --colorNeutral50: #f9f9f6;
+  --colorNeutral100: #f1f2ea;
+  --colorNeutral200: #e4e5dc;
+  --colorNeutral300: #cfd0c8;
+  --colorNeutral400: #9c9e94;
+  --colorNeutral500: #82837c;
+  --colorNeutral600: #686963;
+  --colorNeutral700: #4e4e4b;
+  --colorNeutral800: #343432;
+  --colorNeutral900: #1a1a19;
+  --colorNeutral950: #0d0d0c;
+
+  /* Neutral Colors (Alpha) */
+  --colorNeutral50A: rgba(249, 249, 246, 0.78);
+  --colorNeutral100A: rgba(241, 242, 234, 0.67);
+  --colorNeutral200A: rgba(228, 229, 220, 0.51);
+  --colorNeutral300A: rgba(207, 208, 200, 0.34);
+  --colorNeutral400A: rgba(156, 158, 148, 0.24);
+  --colorNeutral500A: rgba(130, 131, 124, 0.16);
+  --colorNeutral600A: rgba(104, 105, 99, 0.10);
+  --colorNeutral700A: rgba(78, 78, 75, 0.03);
+  --colorNeutral800A: rgba(52, 52, 50, 0);
+  --colorNeutral900A: rgba(26, 26, 25, 0);
+  --colorNeutral950A: rgba(13, 13, 12, 0.1);
+
+  /* Other Color Variables */
+  --colorPrimary500A: hsla(69, 3%, 50%, 0.13);
+  /* Ashby puts the brand colours configured in their admin in a style attribute
+     on <html>, and an inline declaration beats any selector we could write, so
+     these two need the !important. Change them in Ashby and they can go. */
+  --colorPrimary600: var(--colorNeutral600) !important;
+  --colorPrimary900: var(--colorNeutral900) !important;
+  --colorSecondary900: hsl(322deg 65% 54.5%);
+  --colorNegative800: #891b1b;
+  --colorNegative600: #dc3030;
+  --colorNegative200: #fce8e8;
+  --colorPositive800: #197729;
+  --colorPositive600: #29b458;
+  --colorPositive200: #eafcec;
+  --colorWarning900: #5c4813;
+  --colorWarning800: #8c6d1f;
+  --colorWarning600: #f4ca64;
+  --colorInfo100: hsl(206deg 100% 99.2%);
+  --colorInfo200: hsl(210deg 100% 98%);
+  --colorInfo300: hsl(209deg 100% 96.5%);
+  --colorInfo400: hsl(210deg 98.8% 94%);
+  --colorInfo500: hsl(209deg 95% 90.1%);
+  --colorInfo600: hsl(209deg 81.2% 84.5%);
+  --colorInfo700: hsl(208deg 77.5% 76.9%);
+  --colorInfo800: hsl(206deg 81.9% 65.3%);
+  --colorInfo900: hsl(206deg 100% 50%);
+  --colorInfo1000: hsl(208deg 100% 47.3%);
+  --colorInfo1100: hsl(211deg 100% 43.2%);
+  --colorInfo1200: hsl(211deg 100% 15%);
+  --colorAppBackground: #f7f8fa;
+
+  /* Shadows */
+  --colorNeutralShadow: rgba(156, 158, 148, 0.25);
+  --colorPrimaryShadow: rgba(156, 158, 148, 0.25);
+  --colorNeutral100Transparent: rgba(13, 13, 12, 0);
+  --colorNeutral600Transparent: rgba(13, 13, 12, 0.15);
+  --colorShadowPrimaryXLight: rgba(13, 13, 12, 0.1);
+  --colorShadowPrimaryLight: rgba(13, 13, 12, 0.2);
+
+  /* Widths */
+  --widthMaxContent: 1024px;
+  --widthMaxJobBoard: 960px;
+  --widthMaxSubscriptionPreferences: 720px;
+
+  /* Spacing */
+  --spacingXxxsmall: 2px;
+  --spacingXxsmall: 4px;
+  --spacingXsmall: 8px;
+  --spacingSmall: 12px;
+  --spacingNormal: 16px;
+  --spacingLarge: 24px;
+  --spacingXlarge: 32px;
+  --spacingXxlarge: 48px;
+  --spacingXxxlarge: 64px;
+
+  /* Typography */
+  --fontFamily: "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --fontSizeHuge: 68px;
+  --fontSizeXxxxlarge: 40px;
+  --fontSizeXxxlarge: 30px;
+  --fontSizeXxlarge: 24px;
+  --fontSizeXlarge: 20px;
+  --fontSizeLarge: 18px;
+  --fontSizeNormal: 16px;
+  --fontSizeSmall: 14px;
+  --fontSizeXsmall: 12px;
+  --fontSizeXxsmall: 10px;
+  --fontWeightNormal: 400;
+  --fontWeightLightBold: 500;
+  --fontWeightMediumBold: 600;
+  --fontWeightHeavyBold: 700;
+  --letterSpacingTight: -0.01em;
+  --letterSpacingWide: 0.04em;
+  --letterSpacingXwide: 0.1em;
+  --lineHeightSingle: 1.15;
+  --lineHeightTitle: 1.4;
+  --lineHeightNormal: 1.5;
+
+  /* Borders */
+  --borderRadiusContainer: 0px;
+  --borderRadiusControl: 0px;
+  --borderRadiusButton: 48px;
+  --borderRadiusCircle: 100%;
+  --borderWidthThin: 0.5px;
+  --borderWidthNormal: 1px;
+  --borderWidthBold: 2px;
+  --borderWidthHeavy: 3px;
+
+  /* Other */
+  --scrollbarThickness: 8px;
+  --meetingIntroOrganizerAvatarDim: 31.25vw;
+  --meetingIntroOrganizerAvatarMaxDim: 250px;
+  --meetingOverviewEventAttendeeAvatarDim: 30px;
+  --transitionDurationFast: 0.1s;
+  --transitionDuration: 0.25s;
+  --transitionDurationSlow: 0.6s;
+  --transitionFunction: ease-in-out;
+  --zContentBelow: -1;
+  --zContent: 0;
+  --zContentAbove: 1;
+  --zContentXabove: 2;
+  --zContentXxabove: 3;
+  --zSelected: 4;
+  --zNav: 5;
+  --zOnHoverSelect: 6;
+  --zModal: 7;
+  --zToast: 8;
+  --navMobileHeight: 75px;
+  --navDesktopHeight: 100px;
+  --fullScreenLoadingDesktopHeight: 500px;
+  --fullScreenLoadingMobileHeight: 400px;
+  --buttonLineHeight: 1;
+  --calendarJewelDim: 4px;
+  --calendarJewelSpacing: 4px;
+  --selectIconDim: 16px;
+  --checkboxAndRadioDim: 24px;
+  --checkboxAndRadioCheckDim: 12px;
+  --tabSliderHeight: 2px;
+
+  /* Solid Grays */
+  --colorSolidGray1: #fcfcfc;
+  --colorSolidGray2: #f9f9f9;
+  --colorSolidGray3: #f0f0f0;
+  --colorSolidGray4: #e8e8e8;
+  --colorSolidGray5: #e0e0e0;
+  --colorSolidGray6: #d9d9d9;
+  --colorSolidGray7: #cecece;
+  --colorSolidGray8: #bbbbbb;
+  --colorSolidGray9: #8d8d8d;
+  --colorSolidGray10: #838383;
+  --colorSolidGray11: #646464;
+  --colorSolidGray12: #202020;
+}
+
+/* ========================= */
+/* Basic Elements */
+/* ========================= */
+body {
+  background: transparent;
+  color: var(--colorNeutral500);
+}
+
+/* Ashby sets display:flex on the footer's own class, so a bare `footer` loses.
+   [class] only has to be there, not say anything, to out-specify it. */
+footer[class] {
+  display: none;
+}
+
+b, strong {
+  font-weight: var(--fontWeightMediumBold);
+  color: var(--colorNeutral600);
+}
+
+
+/* ========================= */
+/* Application Styles */
+/* ========================= */
+
+/* Application autofill input's base layer element. This contains standard copy, a CTA button, and potential validation alerts. */
+.ashby-application-form-autofill-input-base-layer {}
+
+/* Application autofill input's description. */
+.ashby-application-form-autofill-input-description {}
+
+/* Application autofill input's drag state overlay element. Can style [data-state] which can be 'active' or 'hidden'. */
+.ashby-application-form-autofill-input-drag-layer {}
+
+/* Application autofill input form's alert element. Can style [data-highlight] which can be 'negative' or 'positive'. */
+.ashby-application-form-autofill-input-form-alert {}
+
+/* Application autofill input's magic sparkles icon. */
+.ashby-application-form-autofill-input-icon {}
+
+/* Application autofill input's pending state overlay element. Can style [data-state] which can be 'active' or 'hidden'. */
+.ashby-application-form-autofill-input-pending-layer {}
+
+/* Application autofill input's root element. Can style [data-state] which can be 'pending', 'drag', or 'default'. */
+.ashby-application-form-autofill-input-root {}
+
+/* Application autofill input's title. */
+.ashby-application-form-autofill-input-title {}
+
+/* Container element for application autofill input form. */
+.ashby-application-form-autofill-pane {}
+
+/* The resume uploader to auto-fill the application form */
+.ashby-application-form-autofill-uploader {}
+
+/* A container for displaying the custom message to the user */
+.ashby-application-form-blocked-application-container {}
+
+/* A container for the application form. */
+.ashby-application-form-container {}
+
+/* A container for the failure message */
+.ashby-application-form-failure-container {}
+
+/* A container for the label and input on an application form. */
+.ashby-application-form-field-entry {}
+
+/* The description of each question on an application form. Will only show if a description is specified. */
+.ashby-application-form-question-description {}
+
+/* The title of each question on an application form. */
+.ashby-application-form-question-title {}
+
+/* A single section on the Ashby application form. All questions will be wrapped in sections, though the default section may not have a title. */
+.ashby-application-form-section-container {}
+
+/* The header for an application form section, possibly containing a title and description. */
+.ashby-application-form-section-header {}
+
+/* The description for an application form section. May not exist if no description was specified. */
+.ashby-application-form-section-header-description {}
+
+/* The title for an application form section. May not exist for the default section. */
+.ashby-application-form-section-header-title {}
+
+/* The application submission button. Will have loading and hover states that should be tested. */
+.ashby-application-form-submit-button {}
+
+/* A container for the success message */
+.ashby-application-form-success-container {}
+
+/* The text message consent description. Displayed below phone number fields. Will only show if texting is enabled. */
+.ashby-application-form-texting-consent-description {}
+
+/* The heading of a department, which can have many teams under it. */
+.ashby-department-heading {
+  font-family: Besley, serif, sans-serif;
+  font-weight: var(--fontWeightNormal);
+  font-size: var(--fontSizeLarge);
+  color: var(--colorNeutral900);
+  margin-left: 0px;
+  display: inline;
+  margin-bottom: var(--spacingXsmall);
+}
+
+
+/* The heading of a single team. */
+.ashby-department-heading-level {
+  color: var(--colorNeutral950);
+}
+
+/* The button which allows users to navigate from an individual posting back to the list of all job postings. */
+.ashby-job-board-back-to-all-jobs-button {}
+
+/* A select box element for filtering the job board. */
+.ashby-job-board-filter {}
+
+/* The 'Filters' label element in the job board. */
+.ashby-job-board-filters-label {}
+
+/* The heading of the entire job board. */
+[class*="_titles_"] .ashby-job-board-heading {
+  font-family: Besley, serif, sans-serif;
+  font-weight: var(--fontWeightNormal);
+  font-size: var(--fontSizeXlarge);
+  letter-spacing: -0.01em;
+  margin-top: var(--spacingXxxlarge);
+  color: var(--colorNeutral950);
+}
+
+/* The count of job postings on the job board. */
+.ashby-job-board-heading-count {}
+
+/* The 'Reset filters' label element in the job board. The reset filters label element in the job board. */
+.ashby-job-board-reset-filters-label {}
+
+/* The container of the job posting details pane. Scoped through the list because
+   Ashby's own :first-child rule on it would otherwise win on specificity. */
+.ashby-job-posting-brief-list .ashby-job-posting-brief {
+  margin-left: 0px;
+  background-color: transparent;
+  padding: 0px;
+}
+
+.ashby-job-posting-brief-list>a {
+  display: flex;
+  padding: var(--spacingXlarge) 0px;
+  justify-content: space-between;
+  align-items: center;
+  border-top: var(--borderWidthNormal) solid var(--colorNeutral200);
+  transition: all .3s ease;
+  background-color: transparent;
+}
+
+.ashby-job-posting-brief-list>a:first-child {
+  border-top: var(--borderWidthNormal) solid transparent;
+}
+
+.ashby-job-posting-brief-list>a::after {
+  content: "Apply";
+  border-radius: 999px;
+  font-weight: var(--fontWeightLightBold);
+  font-size: var(--fontSizeNormal);
+  line-height: 1.25;
+  padding: 10px 40px;
+  background-color: var(--colorNeutral100);
+  color: var(--colorNeutral900);
+  transition: all .3s ease;
+}
+
+.ashby-job-posting-brief-list>a:hover::after {
+  background-color: var(--colorNeutral900);
+  color: white;
+}
+
+/* The heading of a department name. Departments group teams. */
+.ashby-job-posting-brief-department-heading {}
+
+/* The heading of a single team. */
+.ashby-job-posting-brief-department-heading-level {}
+
+/* The container for the details of the job posting, in the details pane. */
+.ashby-job-posting-brief-details {
+  color: var(--colorNeutral600);
+}
+
+/* The container for the list of job post briefings. */
+.ashby-job-posting-brief-list {
+  margin-bottom: var(--spacingXlarge);
+  margin-top: var(--spacingXsmall);
+}
+
+/* The title of the job posting in the details pane. */
+.ashby-job-posting-brief-title {
+  color: var(--colorNeutral900);
+  font-size: var(--fontSizeLarge);
+  font-weight: var(--fontWeightLightBold);
+}
+
+/* The main header on the job posting page */
+.ashby-job-posting-header {}
+
+/* The heading of a job post */
+.ashby-job-posting-heading {
+  font-family: Besley, serif, sans-serif;
+  font-weight: var(--fontWeightNormal);
+  letter-spacing: -0.03em;
+  font-size: var(--fontSizeXxxxlarge);
+}
+
+@media only screen and (max-width: 768px) {
+  .ashby-job-posting-heading {
+    letter-spacing: -0.02em;
+    font-size: var(--fontSizeXxxxlarge);
+  }
+}
+
+/* The left pane of the job posting, with the job posting details */
+.ashby-job-posting-left-pane {}
+
+/* The right pane of the job posting, containing the tabs, overview, and application form */
+.ashby-job-posting-right-pane {}
+
+/* The application tab in the right pane of the job posting */
+.ashby-job-posting-right-pane-application-tab {}
+
+/* The overview tab in the right pane of the job posting */
+.ashby-job-posting-right-pane-overview-tab {}
+
+/* The tabs slider in the right pane of the job posting */
+.ashby-job-posting-right-pane-tab-slider {}
+
+/* A container for any surveys specified for this application form. */
+.ashby-survey-form-container {}
+
+
+
+
+
+/* ========================= */
+/* Custom Styles */
+/* ========================= */
+
+/* Ashby's class names are CSS-module hashes, and both the hash and the trailing
+   line number change on every deploy of theirs — anything pinned to one quietly
+   stops matching. Style through the documented .ashby-* hooks where one exists,
+   and match the stable part of the module name everywhere else. */
+
+/* Ashby indents this header block by 24px but only gives the job list a 12px
+   gutter, so the hero image and headings hang off to the right of everything
+   below them. Matched to the list. Selector is loose on purpose: Ashby rehashes
+   these module class names on every deploy and pinned ones go stale silently. */
+[class*="_titles_"] {
+  margin-bottom: 32px;
+}
+
+/* The same wrapper holds the title on an individual posting, where 24px already
+   lines up with the details pane beside it — so only pull the board's copy in. */
+[class*="_titles_"]:has(.ashby-job-board-heading) {
+  margin-left: var(--spacingSmall);
+  margin-right: var(--spacingSmall);
+}
+
+/* On the board the page shell doubles as the job-board section, and there the
+   hero image already supplies all the top space we want; every other page needs
+   room under the 'All Jobs' link. */
+body > div > div[class*="_container_"]:not([class*="_section_"]) {
+  padding-top: 64px;
+}
+
+.ashby-job-posting-brief:hover,
+.ashby-job-posting-brief:active {
+  background: transparent;
+}
+
+[class*="_tabs_"] {
+  box-shadow: inset 0 -1px 0 0 var(--colorNeutral200);
+}
+
+[class*="_tabs_"] a {
+  color: var(--colorNeutral500);
+  font-family: Besley, serif, sans-serif;
+  font-size: var(--fontSizeXlarge);
+}
+
+[class*="_tabs_"] a:not([class*="_active_"]):hover {
+  border-bottom-color: var(--colorNeutral300);
+  color: var(--colorNeutral700);
+}
+
+@media only screen and (min-width: 768px) {
+  [class*="_tabs_"] a,
+  .ashby-job-posting-right-pane-tab-slider {
+      margin-left: 0px;
+      border-radius: 0px;
+  }
+  [class*="_tabs_"] a:nth-child(2)[class*="_active_"] ~ .ashby-job-posting-right-pane-tab-slider {
+      transform: translate(200px);
+  }
+}
+
+[class*="_tabs_"] a[class*="_active_"] {
+  color: var(--colorNeutral900);
+}
+
+/* Only the primary CTAs — 'Apply for this Job' and 'Submit Application'. Ashby's
+   secondary and quaternary buttons (resume upload, the 'All Jobs' back link) read
+   better as plain text than as solid black pills. */
+[class*="_button_"][class*="_primary_"] {
+  background-color: var(--colorNeutral900);
+  font-weight: var(--fontWeightLightBold);
+  color: white;
+  border: none;
+}
+
+[class*="_button_"][class*="_primary_"]:hover,
+[class*="_button_"][class*="_primary_"]:active {
+  background-color: var(--colorNeutral800);
+  box-shadow: none;
+}
+
+[class*="_button_"][class*="_primary_"] svg {
+  fill: currentColor;
+}
+
+/* Compensation is a span in its own module, so it misses the `> p` the other
+   details match — it needs naming separately or it's the one sans value. */
+.ashby-job-posting-left-pane [class*="_section_"] > p,
+.ashby-job-posting-left-pane [class*="_compensationTierSummary_"] {
+  font-family: Besley;
+  font-size: var(--fontSizeNormal);
+}
+
+body .ashby-application-form-field-entry {
+  margin-bottom: 40px;
+}
+
+.ashby-application-form-input-text {
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-bottom: var(--borderWidthNormal) solid var(--colorNeutral200);
+  padding: 12px 0px;
+  transition: all .3s ease;
+  cursor: auto;
+  color: var(--colorNeutral600)
+}
+.ashby-application-form-input-text::placeholder {
+  color: var(--colorNeutral300)
+}
+.ashby-application-form-input-text:hover {
+  border-bottom: var(--borderWidthNormal) solid var(--colorNeutral300);
+  color: var(--colorNeutral600)
+}
+
+@media only screen and (min-width: 768px) {
+  .ashby-application-form-input-file {
+      border: var(--borderWidthBold) dashed var(--colorNeutral200);
+      transition: all .3s ease;
+      background: var(--colorNeutral50A);
+  }
+  .ashby-application-form-input-file:hover {
+      border: var(--borderWidthBold) dashed var(--colorNeutral200);
+  }
+}
+
+.ashby-application-form-input-text:not([data-disabled=true]):focus-within {
+  outline-width: 0px;
+}
+
+.ashby-application-form-autofill-input-root {
+  background: var(--colorNeutral50A);
+}
+
+.ashby-application-form-input-yesno-option {
+  border: var(--borderWidthNormal) solid var(--colorNeutral300);
+  margin-left: calc(-1 * var(--borderWidthNormal));
+}
+
+.ashby-application-form-input-yesno-option:not([class*="_active_"]):hover {
+  background: var(--colorNeutral50A);
+}
+
+[class*="_topDescription_"] {
+  margin-bottom: 48px;
+}
+
+/* Sized so the first job still shows above the fold on a 1280x720 laptop. It
+   has to be width, not max-width: Ashby puts max-width:100% inline on the img,
+   and that beats anything we set here. */
+[class*="_topDescription_"] img {
+  width: 320px;
+  height: auto;
+}
+
+[class*="_topDescription_"] h1 {
+  font-size: var(--fontSizeHuge);
+  font-family: Besley, serif, sans-serif;
+  font-weight: 400;
+  color: var(--colorNeutral950);
+  margin-bottom: 32px;
+}
+
+[class*="_topDescription_"] h1 strong {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.ashby-application-form-autofill-input-title {
+  font-family: Besley, serif, sans-serif;
+  font-size: var(--fontSizeLarge);
+}
+
+.ashby-application-form-question-title {
+  color: var(--colorNeutral900);
+  font-weight: var(--fontWeightLightBold);
+  margin-bottom: var(--spacingSmall);
+}
+
+.ashby-application-form-question-description {
+  color: var(--colorNeutral500);
+  font-size: var(--fontSizeSmall);
+}
+
+.ashby-application-form-autofill-input-root [class*="_header_"] {
+  align-items: center;
+  gap: var(--spacingXsmall);
+}
+
+/* Ashby's card padding is 24px/16px; we want the cards flush with whatever
+   column they sit in, so keep the vertical padding and drop the horizontal. */
+.ashby-job-posting-description-container,
+.ashby-application-form-autofill-pane,
+.ashby-application-form-container {
+  padding: var(--spacingLarge) 0px;
+}
+
+/* The left pane is the one card that sits directly under the posting title, and
+   Ashby indents that title by 24px. The content column supplies 12 of those, so
+   the pane owes the other 12 — flush here would leave the details hanging a
+   gutter's width left of the heading above them. */
+.ashby-job-posting-left-pane {
+  padding: var(--spacingLarge) var(--spacingSmall);
+}
+
+/* Ashby pulls the 'See More' pill out by -16px to cancel a 16px card padding
+   ours doesn't have, so it spilled past the pane. A plain text link sits better
+   next to the details anyway; the vertical padding keeps it a decent tap target. */
+.ashby-job-posting-left-pane [class*="_expandCompensationTiersButton_"] {
+  margin: var(--spacingSmall) 0 0;
+  padding: var(--spacingXsmall) 0;
+  border: 0;
+  font-size: var(--fontSizeSmall);
+  font-weight: var(--fontWeightLightBold);
+  color: var(--colorNeutral600);
+}
+
+/* Ashby still paints its dark pill on hover, and with no side padding the text
+   ran into the rounded ends. Keep it a link all the way through. */
+.ashby-job-posting-left-pane [class*="_expandCompensationTiersButton_"]:hover,
+.ashby-job-posting-left-pane [class*="_expandCompensationTiersButton_"]:active {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--colorNeutral900);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ashby-job-posting-description ol,
+.ashby-job-posting-description ul {
+  margin: var(--spacingNormal) 0 var(--spacingNormal) var(--spacingXlarge);
+}
+
+@media only screen and (min-width: 768px) {
+  [class*="_content_"][class*="_details_"] {
+      grid-template-columns: 260px 1fr;
+      grid-column-gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ashby-job-posting-description ol,
+  .ashby-job-posting-description ul {
+    margin: var(--spacingNormal) 0 var(--spacingNormal) var(--spacingNormal);
+  }
+
+  .ashby-job-posting-brief-list>a {
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+  }
+
+  /* Ashby only drops its job card shadow above 768px, and with our square corners
+     it reads as a stray box around the title rather than a shadow. */
+  .ashby-job-posting-brief {
+    box-shadow: none;
+  }
+
+  [class*="_topDescription_"] h1 {
+    font-size: var(--fontSizeXxxxlarge);
+    margin-bottom: 24px;
+  }
+
+  /* One column down here, so the right pane's cards stack under the details
+     instead of sitting beside them and have to share the same inset. */
+  .ashby-job-posting-description-container,
+  .ashby-application-form-autofill-pane,
+  .ashby-application-form-container {
+    padding-left: var(--spacingSmall);
+    padding-right: var(--spacingSmall);
+  }
+}
+
+/* ========================= */
+/* Landing site */
+/* ========================= */
+
+/* The landing site's Company page has its own heading above the board, so
+   Ashby's "Careers" title and illustration go. Everything above this block is
+   a copy of ashby-embed-v2.css; keep the two in step. */
+[class*="_topDescription_"] {
+  display: none;
+}
